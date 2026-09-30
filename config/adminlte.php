@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Kasir</b>2',
     'logo_img' => 'vendor/adminlte/dist/assets/img/Logo.png',
     'logo_img_class' => 'brand-image opacity-75 shadow',
     'logo_img_xl' => null,
