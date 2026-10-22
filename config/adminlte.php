@@ -786,19 +786,38 @@ return [
             'can' => 'manage-blog',
         ],
         [
-            'text' => 'pages',
-            'url' => 'admin/pages',
+            'text' => 'jurusan',
+            'url' => 'jurusan',
             'icon' => 'far fa-fw fa-file',
             'label' => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'jenjang',
+            'url' => 'jenjang',
+            'icon' => 'far fa-fw fa-file',
+            'label' => 4,
+            'label_color' => 'success',
         ],
         [
+            'text' => 'kelas',
+            'url' => 'kelas',
+            'icon' => 'far fa-fw fa-file',
+            'label' => 4,
+            'label_color' => 'success',
+        ],
+        [
+
+        ['header' => 'account_settings'],
+
+            'text' => 'siswa',
+            'url' => 'siswa',
+            'icon' => 'fas fa-fw fa-user',
+            'label' => 4,
+            'label_color' => 'success',
+        ],
+        [
+
             'text' => 'change_password',
             'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
