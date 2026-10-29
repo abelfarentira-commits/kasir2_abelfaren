@@ -7,6 +7,7 @@ use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\JenjangController;
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,6 +24,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/siswa/cetak-pdf', [SiswaController::class, 'cetakPdf'])->name('siswa.cetak-pdf');
     Route::resource('jurusan',JurusanController::class);
     Route::resource('jenjang',JenjangController::class);
+    Route::resource('kelas', \App\Http\Controllers\KelasController::class);
+    Route::resource('users', \App\Http\Controllers\UserController::class);
 });
 
 require __DIR__ . '/auth.php';
