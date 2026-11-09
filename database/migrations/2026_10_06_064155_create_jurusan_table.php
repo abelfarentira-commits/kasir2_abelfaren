@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('jurusan', function (Blueprint $table) {
             $table->id();
             $table->string('kode_jurusan', 20)->unique();
-            $table->string('nama_jurusan', 100);
-            $table->string('keterangan', 255)->nullable();
+            $table->string('nama_jurusan');
+            $table->string('keterangan');
             $table->enum('status', ['aktif', 'nonaktif'])->default('aktif');
             $table->timestamps();
         });

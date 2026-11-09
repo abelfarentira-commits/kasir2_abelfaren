@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nama');
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
             $table->string('mata_pelajaran')->nullable();
-            $table->string('no_telopon')->nullable();
+            $table->string('no_telepon')->nullable();
              $table->string('email')->unique();
             $table->string('username')->unique()->nullable();
             $table->string('password')->nullable();
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->enum('status', ['aktif', 'nonaktif'])->default('aktif');
             $table->timestamp('email_verified_at')->nullable();
 
-            
+
 
             $table->rememberToken();
             $table->timestamps();

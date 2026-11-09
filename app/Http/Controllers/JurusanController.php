@@ -23,13 +23,21 @@ class JurusanController extends Controller
 
     public function create()
     {
-
+        return view('jurusan.create');
     }
 
     public function store(Request $request)
     {
+        $request->validate([
+            'kode_jurusan' => 'required|string|max:20|unique:jurusan,kode_jurusan',
+            'nama_jurusan' => 'required|string|max:100',
+            'keterangan' => 'nullable|string|max:255',
+            'status' => 'required|in:Aktif,Nonaktif',
+        ]);
 
-       
+        Jurusan::create($request->all());
+
+        return redirect()->route('jurusan.index')->with('success', 'Jurusan berhasil ditambahkan.');
     }
 
     public function show(Jurusan $jurusan)
