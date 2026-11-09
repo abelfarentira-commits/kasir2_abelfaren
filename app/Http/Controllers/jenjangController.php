@@ -16,8 +16,7 @@ class JenjangController extends Controller
                       ->orWhere('keterangan', 'like', "%{$search}%");
                 });
             })
-            ->paginate(10)
-            ->withQueryString();
+            ->paginate(10);
 
         return view('jenjang.index', compact('jenjangs'));
     }

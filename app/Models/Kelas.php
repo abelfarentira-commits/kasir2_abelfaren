@@ -10,9 +10,14 @@ class Kelas extends Model
 
     protected $fillable = [
         'nama_kelas',
+        'user_id',
         'jurusan_id',
         'jenjang_id',
         'status',
-        'user_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

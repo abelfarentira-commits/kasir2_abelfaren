@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Storage;
 
 class SiswaController extends Controller
 {
-public function index(Request $request)
+    public function index(Request $request)
     {
-	    //Filter search
+        // Filter search
         $siswas = Siswa::query()
             ->when($request->search, function ($query, $search) {
                 $query->where('nama_siswa', 'like', "%{$search}%")
@@ -21,7 +21,7 @@ public function index(Request $request)
         return view('siswa.index', compact('siswas'));
     }
 
-     public function create()
+    public function create()
     {
         return view('siswa.create');
     }
@@ -37,15 +37,16 @@ public function index(Request $request)
             'email'      => 'nullable|email|unique:siswas',
         ]);
 
-        // Simpan data langsung (tanpa perlu definisikan satu-satu)
+        // Simpan data langsung
         Siswa::create($data);
 
-        return redirect()->route('siswa.index')->with('success', 'Data siswa berhasil ditambahkan.');
+        return redirect()->route('siswa.index')
+            ->with('success', 'Data siswa berhasil ditambahkan.');
     }
 
     public function edit(Siswa $siswa)
     {
-        return view('siswa.edit',compact('siswa'));
+        return view('siswa.edit', compact('siswa'));
     }
 
     public function update(Request $request, Siswa $siswa)
@@ -53,16 +54,17 @@ public function index(Request $request)
         // Validasi data
         $data = $request->validate([
             'nama_siswa' => 'required|string|max:255',
-            'nis'        => 'required|string|max:20|unique:siswas,nis,'.$siswa->id,
+            'nis'        => 'required|string|max:20|unique:siswas,nis,' . $siswa->id,
             'jurusan'    => 'required|string|max:100',
             'kelas'      => 'required|string|max:50',
-            'email'      => 'nullable|email|unique:siswas,email,'.$siswa->id,
+            'email'      => 'nullable|email|unique:siswas,email,' . $siswa->id,
         ]);
 
         // Update data langsung
         $siswa->update($data);
 
-        return redirect()->route('siswa.index')->with('success', 'Data siswa berhasil diperbarui.');
+        return redirect()->route('siswa.index')
+            ->with('success', 'Data siswa berhasil diperbarui.');
     }
 
     public function show(Siswa $siswa)
@@ -72,10 +74,9 @@ public function index(Request $request)
 
     public function destroy(Siswa $siswa)
     {
-
         $siswa->delete();
 
-        return redirect()->route('siswa.index')->with('success', 'Data siswa berhasil dihapus.');
+        return redirect()->route('siswa.index')
+            ->with('success', 'Data siswa berhasil dihapus.');
     }
-
 }
